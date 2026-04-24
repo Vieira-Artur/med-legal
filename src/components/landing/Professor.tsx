@@ -48,6 +48,16 @@ export const Professor = () => {
                 Professor
               </div>
             </div>
+            <a
+              href="https://instagram.com/arturapv"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-accent mx-auto lg:mx-0 w-fit"
+              aria-label="Instagram do Prof. Artur Vieira"
+            >
+              <Instagram className="h-4 w-4" />
+              @arturapv
+            </a>
           </div>
 
           {/* Info */}
