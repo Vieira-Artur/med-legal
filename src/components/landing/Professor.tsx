@@ -1,4 +1,4 @@
-import { GraduationCap, Shield, BookOpen, Award } from "lucide-react";
+import { GraduationCap, Shield, BookOpen, Award, Instagram } from "lucide-react";
 import profPhoto from "@/assets/prof-artur.jpg";
 
 const credentials = [
