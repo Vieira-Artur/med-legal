@@ -12,12 +12,9 @@ export const About = () => {
 
         <div className="space-y-5 text-base leading-relaxed text-foreground/85 lg:col-span-7 lg:text-lg">
           <p>
-            <strong className="text-primary">Noções Básicas de Medicina Legal</strong>{" "}
-            é uma disciplina especial dentro da{" "}
-            <em>Pós-Graduação em Direito Penal, Processo Penal e Tribunal do Júri</em>{" "}
-            do Instituto Vianna Júnior — agora também aberta, em formato de
-            curso de extensão, a alunos e ex-alunos de qualquer curso da
-            instituição.
+            Uma imersão prática para advogados, estudantes e profissionais do
+            Direito que querem dominar a leitura de laudos periciais, atuar
+            com segurança no Tribunal do Júri e elevar sua atuação criminal.
           </p>
           <p>
             Em um único sábado de imersão, você vai conhecer os fundamentos da
