@@ -42,8 +42,10 @@ export const Hero = () => {
             Noções Básicas de Medicina Legal é uma disciplina especial dentro
             da Pós-Graduação em Direito Penal, Processo Penal e Tribunal do
             Júri do Instituto Vianna Júnior — agora também aberta,{" "}
-            <strong className="font-semibold text-accent">GRATUITA</strong>, em
-            formato de curso de extensão, a alunos e ex-alunos das FIVJ.
+            <strong className="align-baseline font-semibold leading-relaxed text-accent">
+              GRATUITA
+            </strong>
+            , em formato de curso de extensão, a alunos e ex-alunos das FIVJ.
           </p>
 
           {/* Free badge */}
