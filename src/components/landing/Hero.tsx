@@ -39,9 +39,11 @@ export const Hero = () => {
           </h1>
 
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/85 md:text-lg">
-            Uma imersão prática para advogados, estudantes e profissionais do
-            Direito que querem dominar a leitura de laudos periciais, atuar com
-            segurança no Tribunal do Júri e elevar sua atuação criminal.
+            Noções Básicas de Medicina Legal é uma disciplina especial dentro
+            da Pós-Graduação em Direito Penal, Processo Penal e Tribunal do
+            Júri do Instituto Vianna Júnior — agora também aberta,{" "}
+            <strong className="font-semibold text-accent">GRATUITA</strong>, em
+            formato de curso de extensão, a alunos e ex-alunos das FIVJ.
           </p>
 
           {/* Free badge */}
