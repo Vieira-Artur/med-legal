@@ -1,4 +1,4 @@
-import { GraduationCap, Shield, BookOpen, Award } from "lucide-react";
+import { GraduationCap, Shield, BookOpen, Award, Instagram } from "lucide-react";
 import profPhoto from "@/assets/prof-artur.jpg";
 
 const credentials = [
@@ -30,8 +30,8 @@ export const Professor = () => {
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
           {/* Photo */}
-          <div className="lg:col-span-4">
-            <div className="relative mx-auto w-fit lg:mx-0">
+          <div className="flex flex-col items-center lg:col-span-4 lg:items-start">
+            <div className="relative w-fit">
               <div
                 aria-hidden
                 className="absolute -inset-3 rounded-full bg-gradient-accent opacity-20 blur-2xl"
@@ -48,6 +48,16 @@ export const Professor = () => {
                 Professor
               </div>
             </div>
+            <a
+              href="https://instagram.com/arturapv"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-accent"
+              aria-label="Instagram do Prof. Artur Vieira"
+            >
+              <Instagram className="h-4 w-4" />
+              @arturapv
+            </a>
           </div>
 
           {/* Info */}
