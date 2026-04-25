@@ -15,7 +15,7 @@ const credentials = [
   {
     icon: BookOpen,
     title: "Autor",
-    text: "Direito Penal e os Direitos Sociais — Editora Dialética",
+    text: "Mais de 20 publicações entre artigos, capítulos de livros e livros autorais",
   },
   {
     icon: Award,
