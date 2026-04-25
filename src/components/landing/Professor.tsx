@@ -10,7 +10,7 @@ const credentials = [
   {
     icon: Shield,
     title: "Ex-Delegado de Polícia Civil",
-    text: "Estado da Bahia — vivência prática em investigação criminal",
+    text: "Estado da Bahia",
   },
   {
     icon: BookOpen,
@@ -69,9 +69,9 @@ export const Professor = () => {
             <p className="mt-5 text-base leading-relaxed text-foreground/85 md:text-lg">
               Mestre em Direito pela Universidade Católica de Petrópolis e
               ex-Delegado da Polícia Civil da Bahia, o Prof. Artur reúne sólida
-              formação acadêmica e vivência prática em investigação criminal.
-              Atua como professor de Graduação e Pós-Graduação no Instituto
-              Vianna Júnior e em cursinhos preparatórios de referência.
+              formação acadêmica e atuação no Direito Penal. Atua como
+              professor de Graduação e Pós-Graduação no Instituto Vianna
+              Júnior e em cursinhos preparatórios de referência.
             </p>
 
             <div className="mt-7 grid gap-4 sm:grid-cols-2">
