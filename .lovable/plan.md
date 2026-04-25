@@ -1,47 +1,40 @@
+## Objetivo
 
-# Substituir iframe do Google Forms por formulário nativo
+Deixar a página com SEO completo e um cartão bonito quando compartilhada no WhatsApp, Instagram, Facebook, LinkedIn e Twitter/X — hoje o `index.html` tem alguns metas, mas usa uma imagem OG genérica do Lovable e faltam campos importantes (locale, url canônica, favicon dedicado, imagem com dimensões etc.).
 
-## Problema
-O iframe do Google Forms exibe cabeçalho do Google, descrição do form, aviso "Indica perguntas obrigatórias", logo do Forms e rodapé "Nunca envie senhas...". Isso quebra o visual da landing e deixa óbvio que é um Google Forms.
+## O que será feito
 
-## Solução
-Trocar o iframe por um formulário HTML nativo, estilizado com a paleta institucional, que envia os dados para o mesmo Google Forms via `fetch` no endpoint `formResponse` (técnica padrão e confiável). Para o usuário, parece um formulário próprio da página.
+### 1. Gerar imagem OG personalizada do curso
+Criar uma imagem `1200×630px` (proporção padrão para link preview) com:
+- Fundo no gradiente da marca (azul escuro do Hero)
+- Título "Noções Básicas de Medicina Legal"
+- Selo "GRATUITO · 10h · Certificado"
+- "Instituto Vianna Júnior · Juiz de Fora/MG"
+- Logo do Vianna Jr.
 
-## O que vou fazer no `Registration.tsx`
+Salva em `public/og-image.jpg` (servida na raiz do site).
 
-1. **Remover** o `<iframe>` e o link "Abrir formulário em nova aba" (mantenho um link discreto de fallback caso ocorra erro de envio).
+### 2. Reescrever os metadados do `index.html`
+- Corrigir/expandir os existentes
+- Adicionar `og:url`, `og:site_name`, `og:locale` (`pt_BR`), `og:image:width`/`height`/`alt`
+- Adicionar `<link rel="canonical">` apontando pra `https://med-legal.lovable.app`
+- Adicionar `theme-color` (azul da marca) — pinta a barra do navegador no celular
+- Adicionar `keywords` (medicina legal, curso, Vianna Júnior, Juiz de Fora, Tribunal do Júri)
+- Apontar a imagem OG pra `/og-image.jpg`
 
-2. **Adicionar formulário nativo** com estes campos (apenas o essencial, como você pediu):
-   - Nome completo
-   - CPF (com máscara automática `000.000.000-00`)
-   - E-mail
-   - Telefone/WhatsApp (com máscara `(00) 00000-0000`)
-   - Vínculo com a Vianna Jr (select: Aluno da Pós · Aluno da Graduação · Ex-aluno · Outro)
-   - Botão "Confirmar inscrição" em vermelho institucional
+### 3. Favicon
+Hoje `public/favicon.ico` é o padrão do Lovable. Substituir por uma versão simples baseada no logo do Vianna Jr. (mesma marca que aparece na aba do navegador).
 
-3. **Validação** em tempo real (campos obrigatórios, formato de e-mail e CPF).
-
-4. **Envio**: `POST` para `https://docs.google.com/forms/d/e/{FORM_ID}/formResponse` em modo `no-cors` (envio funciona, browser apenas não lê a resposta — comportamento esperado e amplamente usado).
-
-5. **Estado de sucesso**: ao confirmar, esconde o formulário e mostra uma mensagem elegante: "Inscrição recebida! Você receberá a confirmação por e-mail." com ícone de check.
-
-6. **Estado de erro**: se o `fetch` falhar (raro), mostra mensagem com link para o Google Forms original como fallback.
-
-## O que preciso de você (uma única ação rápida)
-
-Para mapear cada campo da landing ao campo correto do seu Google Forms, preciso dos **IDs internos dos campos** (`entry.XXXXXXXXX`). Existem duas opções:
-
-**Opção A (mais simples — você faz em 1 minuto):**
-1. Abra seu Google Form em modo de edição
-2. Clique nos três pontinhos (⋮) no topo → "Obter link pré-preenchido"
-3. Preencha cada campo com um valor de teste (ex: "Nome Teste", "111.111.111-11", etc.)
-4. Clique em "Obter link" no rodapé → "Copiar link"
-5. Cole o link aqui — eu extraio os `entry.IDs` automaticamente
-
-**Opção B:** me confirme quais campos seu Google Form tem hoje (Nome, CPF, E-mail, Telefone, Vínculo?) e eu monto a página, deixando os `entry.IDs` como `TODO` para você preencher depois com o passo da Opção A.
+### 4. Verificação
+Após aplicar, gerar screenshot do `og-image.jpg` e conferir visualmente que está legível, sem texto cortado e com a marca correta.
 
 ## Detalhes técnicos
-- Componente continua client-side puro, sem backend.
-- Máscaras implementadas com `onChange` simples (sem dependências novas).
-- Acessibilidade: `<label>` associado a cada `<input>`, mensagens de erro com `aria-live`.
-- Visual: usa os componentes `Input`, `Label`, `Button` e `Select` já existentes em `src/components/ui/`, respeitando os tokens de cor da landing.
+
+**Arquivos alterados/criados:**
+- `index.html` — substituir o bloco de metas atual por versão completa
+- `public/og-image.jpg` — novo (gerado via script Python/Pillow no `/tmp`)
+- `public/favicon.ico` — substituir pelo favicon do Vianna Jr.
+
+**URL canônica usada:** `https://med-legal.lovable.app` (URL publicada do projeto).
+
+**Não será mexido:** nenhum componente React, nenhuma rota, nenhum estilo da página. Só `<head>` e arquivos estáticos em `public/`.
