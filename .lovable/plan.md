@@ -1,40 +1,24 @@
-## Objetivo
+## Botão flutuante do WhatsApp
 
-Deixar a página com SEO completo e um cartão bonito quando compartilhada no WhatsApp, Instagram, Facebook, LinkedIn e Twitter/X — hoje o `index.html` tem alguns metas, mas usa uma imagem OG genérica do Lovable e faltam campos importantes (locale, url canônica, favicon dedicado, imagem com dimensões etc.).
+Adicionar um botão verde fixo no canto inferior direito da tela (visível em todas as seções) com o ícone do WhatsApp e o texto **"Tire suas dúvidas"**. Ao clicar, abre o WhatsApp Web/app com uma mensagem pré-preenchida.
 
-## O que será feito
+## O que vai ser feito
 
-### 1. Gerar imagem OG personalizada do curso
-Criar uma imagem `1200×630px` (proporção padrão para link preview) com:
-- Fundo no gradiente da marca (azul escuro do Hero)
-- Título "Noções Básicas de Medicina Legal"
-- Selo "GRATUITO · 10h · Certificado"
-- "Instituto Vianna Júnior · Juiz de Fora/MG"
-- Logo do Vianna Jr.
+### 1. Criar `src/components/landing/WhatsAppButton.tsx`
+- Botão `position: fixed` no canto inferior direito (`bottom-5 right-5`, com `z-50` para ficar por cima de tudo)
+- Cor verde oficial do WhatsApp (`#25D366`), com hover mais escuro e leve zoom
+- Ícone (`MessageCircle` do lucide-react) + texto "Tire suas dúvidas"
+- Link `https://wa.me/<NUMERO>?text=<mensagem-prefixada>` abrindo em nova aba
+- **Número placeholder** `5500000000000` com um comentário `// TODO` em destaque para você trocar quando me mandar
+- Mensagem pré-preenchida: *"Olá! Tenho uma dúvida sobre o curso de Noções Básicas de Medicina Legal."*
+- `aria-label` para acessibilidade
 
-Salva em `public/og-image.jpg` (servida na raiz do site).
+### 2. Montar o botão no `src/pages/Index.tsx`
+- Importar `WhatsAppButton`
+- Renderizar logo após o `<Footer />`, fora do `<main>`, para ficar fixo sobre a página inteira
 
-### 2. Reescrever os metadados do `index.html`
-- Corrigir/expandir os existentes
-- Adicionar `og:url`, `og:site_name`, `og:locale` (`pt_BR`), `og:image:width`/`height`/`alt`
-- Adicionar `<link rel="canonical">` apontando pra `https://med-legal.lovable.app`
-- Adicionar `theme-color` (azul da marca) — pinta a barra do navegador no celular
-- Adicionar `keywords` (medicina legal, curso, Vianna Júnior, Juiz de Fora, Tribunal do Júri)
-- Apontar a imagem OG pra `/og-image.jpg`
+## Detalhes
 
-### 3. Favicon
-Hoje `public/favicon.ico` é o padrão do Lovable. Substituir por uma versão simples baseada no logo do Vianna Jr. (mesma marca que aparece na aba do navegador).
-
-### 4. Verificação
-Após aplicar, gerar screenshot do `og-image.jpg` e conferir visualmente que está legível, sem texto cortado e com a marca correta.
-
-## Detalhes técnicos
-
-**Arquivos alterados/criados:**
-- `index.html` — substituir o bloco de metas atual por versão completa
-- `public/og-image.jpg` — novo (gerado via script Python/Pillow no `/tmp`)
-- `public/favicon.ico` — substituir pelo favicon do Vianna Jr.
-
-**URL canônica usada:** `https://med-legal.lovable.app` (URL publicada do projeto).
-
-**Não será mexido:** nenhum componente React, nenhuma rota, nenhum estilo da página. Só `<head>` e arquivos estáticos em `public/`.
+- Visível em mobile e desktop (botão compacto, não atrapalha leitura)
+- Quando você me mandar o número, troco apenas a constante `WHATSAPP_NUMBER` no arquivo
+- Não mexe em nenhum outro componente

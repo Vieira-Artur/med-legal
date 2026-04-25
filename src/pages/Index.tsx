@@ -8,6 +8,7 @@ import { Professor } from "@/components/landing/Professor";
 import { Registration } from "@/components/landing/Registration";
 import { Location } from "@/components/landing/Location";
 import { Footer } from "@/components/landing/Footer";
+import { WhatsAppButton } from "@/components/landing/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
         <Location />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
