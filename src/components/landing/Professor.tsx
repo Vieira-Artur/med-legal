@@ -20,7 +20,7 @@ const credentials = [
   {
     icon: Award,
     title: "Formação complementar",
-    text: "Bacharel em Direito (UFJF) · MBAs USP-ESALQ · Especializações em Direito Público e Penal/Processual Penal",
+    text: "Bacharel em Direito (UFJF) · MBA em Gestão de Negócios (USP-ESALQ) · Especializações em Direito Público e Penal/Processual Penal",
   },
 ];
 
