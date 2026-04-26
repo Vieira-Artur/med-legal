@@ -9,6 +9,7 @@ import { Registration } from "@/components/landing/Registration";
 import { Location } from "@/components/landing/Location";
 import { Footer } from "@/components/landing/Footer";
 import { WhatsAppButton } from "@/components/landing/WhatsAppButton";
+import { BackToTopButton } from "@/components/landing/BackToTopButton";
 import { Reveal } from "@/components/landing/Reveal";
 
 const Index = () => {
@@ -27,6 +28,7 @@ const Index = () => {
       </main>
       <Footer />
       <WhatsAppButton />
+      <BackToTopButton />
     </div>
   );
 };
