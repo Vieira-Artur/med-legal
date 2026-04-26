@@ -9,6 +9,7 @@ import { Registration } from "@/components/landing/Registration";
 import { Location } from "@/components/landing/Location";
 import { Footer } from "@/components/landing/Footer";
 import { WhatsAppButton } from "@/components/landing/WhatsAppButton";
+import { Reveal } from "@/components/landing/Reveal";
 
 const Index = () => {
   return (
@@ -16,13 +17,13 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
-        <Highlights />
-        <About />
-        <Importance />
-        <Program />
-        <Professor />
-        <Registration />
-        <Location />
+        <Reveal><Highlights /></Reveal>
+        <Reveal><About /></Reveal>
+        <Reveal><Importance /></Reveal>
+        <Reveal><Program /></Reveal>
+        <Reveal><Professor /></Reveal>
+        <Reveal><Registration /></Reveal>
+        <Reveal><Location /></Reveal>
       </main>
       <Footer />
       <WhatsAppButton />
