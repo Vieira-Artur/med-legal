@@ -82,6 +82,13 @@ export const Registration = () => {
         body,
       });
       setStatus("success");
+      // Google Analytics: track conversion
+      if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+        (window as any).gtag("event", "sign_up", {
+          event_category: "engagement",
+          event_label: "Inscrição curso Medicina Legal",
+        });
+      }
     } catch {
       setStatus("error");
     }
