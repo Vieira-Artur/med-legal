@@ -10,7 +10,7 @@ export const About = () => {
           <span className="accent-rule" />
         </div>
 
-        <div className="space-y-5 text-base leading-relaxed text-foreground/85 lg:col-span-7 lg:text-lg">
+        <div className="space-y-5 text-base leading-relaxed text-foreground/85 lg:col-span-7 lg:text-lg text-justify hyphens-auto">
           <p>
             Uma introdução prática à Medicina Legal voltada para advogados,
             estudantes, concurseiros e profissionais do Direito que desejam

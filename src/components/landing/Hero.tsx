@@ -38,7 +38,7 @@ export const Hero = () => {
             <span className="text-accent-soft">Medicina Legal</span>
           </h1>
 
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/85 md:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/85 md:text-lg text-justify hyphens-auto">
             Noções Básicas de Medicina Legal é uma disciplina especial dentro
             da Pós-Graduação em Direito Penal, Processo Penal e Tribunal do
             Júri do Instituto Vianna Júnior — agora também aberta,{" "}

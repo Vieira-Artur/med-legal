@@ -66,7 +66,7 @@ export const Professor = () => {
             <h2 className="section-title mt-3">Prof. Artur Vieira</h2>
             <span className="accent-rule" />
 
-            <p className="mt-5 text-base leading-relaxed text-foreground/85 md:text-lg">
+            <p className="mt-5 text-base leading-relaxed text-foreground/85 md:text-lg text-justify hyphens-auto">
               Mestre em Direito pela Universidade Católica de Petrópolis e
               ex-Delegado da Polícia Civil da Bahia, o Prof. Artur reúne sólida
               formação acadêmica e atuação no Direito Penal. Atua como
