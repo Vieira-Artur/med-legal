@@ -33,7 +33,7 @@ export const Importance = () => {
             A Medicina Legal é a ponte entre a perícia e a Justiça
           </h2>
           <span className="accent-rule" />
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg text-justify hyphens-auto">
             Nenhum processo criminal grave caminha sem prova pericial. Dominar a
             linguagem da Medicina Legal é o que separa o operador do Direito que
             apenas <em>cita</em> um laudo daquele que efetivamente o{" "}
