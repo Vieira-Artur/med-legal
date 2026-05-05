@@ -65,8 +65,7 @@ export const Importance = () => {
           <p className="text-sm text-foreground/80 md:text-base">
             <strong className="text-primary">Para quem é o curso:</strong>{" "}
             advogados criminalistas, estudantes de Direito, candidatos a
-            concursos da área criminal, delegados, promotores, defensores e
-            magistrados que queiram se atualizar.
+            concursos da área criminal.
           </p>
         </div>
       </div>
