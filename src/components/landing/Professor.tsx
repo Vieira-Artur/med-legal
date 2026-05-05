@@ -40,7 +40,7 @@ export const Professor = () => {
                 <img
                   src={profPhoto}
                   alt="Prof. Artur Vieira"
-                  className="h-56 w-56 object-cover md:h-64 md:w-64"
+                  className="h-56 w-56 object-cover object-top md:h-64 md:w-64"
                   loading="lazy"
                 />
               </div>
