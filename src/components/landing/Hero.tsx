@@ -60,11 +60,11 @@ export const Hero = () => {
           <ul className="mt-8 grid grid-cols-2 gap-3 text-sm text-primary-foreground/90 sm:flex sm:flex-wrap sm:gap-x-6 sm:gap-y-3">
             <li className="flex items-center gap-2">
               <Calendar className="h-4 w-4 text-accent-soft" />
-              Sábado · data a definir
+              Sábado · 27/06/2026
             </li>
             <li className="flex items-center gap-2">
               <Clock className="h-4 w-4 text-accent-soft" />
-              10h de carga horária
+              8h–12h e 13h–17h
             </li>
             <li className="flex items-center gap-2">
               <Award className="h-4 w-4 text-accent-soft" />
