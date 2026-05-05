@@ -10,7 +10,7 @@ const items = [
   },
   { icon: Clock, title: "10 horas", desc: "Carga horária completa" },
   { icon: Award, title: "Certificado", desc: "Curso oficial de extensão" },
-  { icon: Users, title: "Aberto", desc: "Alunos e ex-alunos da Vianna Jr." },
+  { icon: Users, title: "Aberto", desc: "Alunos e ex-alunos do Vianna Jr." },
   { icon: CalendarDays, title: "Sábado integral", desc: "Data a definir" },
 ];
 
