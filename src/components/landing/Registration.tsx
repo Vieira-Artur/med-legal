@@ -222,6 +222,9 @@ export const Registration = () => {
               <p className="text-center text-xs text-muted-foreground">
                 Ao se inscrever, você concorda em receber comunicações sobre este curso.
               </p>
+              <p className="text-center text-[11px] text-muted-foreground/70">
+                Seus dados são utilizados exclusivamente para matrícula e emissão de certificado, conforme a LGPD.
+              </p>
             </form>
           )}
         </div>
