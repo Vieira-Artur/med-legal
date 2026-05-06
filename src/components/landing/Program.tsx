@@ -1,12 +1,17 @@
 const topics = [
   { n: "01", t: "Introdução à Medicina Legal", d: "Conceito, histórico, peritos oficiais e a estrutura da perícia no Brasil." },
-  { n: "02", t: "Traumatologia forense", d: "Lesões por instrumentos contundentes, perfurantes, cortantes e por projétil de arma de fogo." },
-  { n: "03", t: "Tanatologia forense", d: "Fenômenos cadavéricos, cronotanatognose e causa jurídica da morte." },
-  { n: "04", t: "Sexologia forense", d: "Crimes contra a dignidade sexual e principais exames periciais." },
-  { n: "05", t: "Toxicologia forense", d: "Embriaguez, drogas de abuso e envenenamentos relevantes ao processo penal." },
-  { n: "06", t: "Psicopatologia forense", d: "Imputabilidade, semi-imputabilidade e medidas de segurança." },
-  { n: "07", t: "Documentos médico-legais", d: "Notificação, atestado, relatório, parecer e o laudo pericial." },
-  { n: "08", t: "Aplicação no Tribunal do Júri", d: "Como usar a Medicina Legal na construção de teses, quesitos e inquirições." },
+  { n: "02", t: "Documentos médico-legais, perícia e perito", d: "Notificação, atestado, relatório, parecer, laudo pericial e a atuação do perito." },
+  { n: "03", t: "Corpo de delito", d: "Exame de corpo de delito direto e indireto e sua relevância probatória." },
+  { n: "04", t: "Antropologia forense", d: "Estudo dos ossos e estimativas de sexo, idade, estatura e ancestralidade." },
+  { n: "05", t: "Identificação médico-legal", d: "Métodos de identificação aplicados à Medicina Legal." },
+  { n: "06", t: "Identificação policial e judiciária", d: "Sistema datiloscópico e demais técnicas de identificação humana." },
+  { n: "07", t: "Traumatologia forense", d: "Lesões por instrumentos contundentes, perfurantes, cortantes e perfurocortantes." },
+  { n: "08", t: "Lesões e morte por PAF", d: "Lesões e morte causadas por projéteis de arma de fogo." },
+  { n: "09", t: "Energias de ordem física", d: "Lesões por temperatura, eletricidade, pressão e radiações." },
+  { n: "10", t: "Energias de ordem química", d: "Cáusticos, venenos e demais agentes químicos lesivos." },
+  { n: "11", t: "Toxicofilia", d: "Drogas de abuso, dependência química e implicações médico-legais." },
+  { n: "12", t: "Asfixiologia", d: "Asfixias mecânicas: enforcamento, estrangulamento, esganadura, afogamento e sufocação." },
+  { n: "13", t: "Tanatologia", d: "Fenômenos cadavéricos, cronotanatognose e causa jurídica da morte." },
 ];
 
 export const Program = () => {
@@ -16,7 +21,7 @@ export const Program = () => {
         <div className="max-w-2xl">
           <span className="section-eyebrow">Conteúdo programático</span>
           <h2 className="section-title mt-3">
-            Oito blocos temáticos em um sábado de imersão
+            Treze blocos temáticos em um sábado de imersão
           </h2>
           <span className="accent-rule" />
           <p className="mt-5 text-muted-foreground md:text-lg">
