@@ -1,24 +1,27 @@
-## Botão flutuante do WhatsApp
+## Ajustes a aplicar
 
-Adicionar um botão verde fixo no canto inferior direito da tela (visível em todas as seções) com o ícone do WhatsApp e o texto **"Tire suas dúvidas"**. Ao clicar, abre o WhatsApp Web/app com uma mensagem pré-preenchida.
+### 1. Carga horária (8h de aula / 10h de certificado)
+**`src/components/landing/Highlights.tsx`**
+- Alterar o card "10 horas / Carga horária completa" para refletir corretamente:
+  - Título: **"8 horas"**
+  - Descrição: **"Certificado de 10h"** (computa atividades complementares)
 
-## O que vai ser feito
+Assim o Hero ("8h–12h e 13h–17h") fica coerente com o card, e o diferencial das 10h do certificado continua visível.
 
-### 1. Criar `src/components/landing/WhatsAppButton.tsx`
-- Botão `position: fixed` no canto inferior direito (`bottom-5 right-5`, com `z-50` para ficar por cima de tudo)
-- Cor verde oficial do WhatsApp (`#25D366`), com hover mais escuro e leve zoom
-- Ícone (`MessageCircle` do lucide-react) + texto "Tire suas dúvidas"
-- Link `https://wa.me/<NUMERO>?text=<mensagem-prefixada>` abrindo em nova aba
-- **Número placeholder** `5500000000000` com um comentário `// TODO` em destaque para você trocar quando me mandar
-- Mensagem pré-preenchida: *"Olá! Tenho uma dúvida sobre o curso de Noções Básicas de Medicina Legal."*
-- `aria-label` para acessibilidade
+### 2. Público-alvo restrito (FIVJ)
+**`src/components/landing/Importance.tsx`**
+- No bloco final "Para quem é o curso", reescrever para deixar explícito que é **exclusivo para alunos e ex-alunos do Instituto Vianna Júnior** — mantendo a menção a advogados criminalistas, estudantes e concurseiros como perfil dentro desse público.
 
-### 2. Montar o botão no `src/pages/Index.tsx`
-- Importar `WhatsAppButton`
-- Renderizar logo após o `<Footer />`, fora do `<main>`, para ficar fixo sobre a página inteira
+Texto sugerido:
+> **Para quem é o curso:** alunos e ex-alunos do Instituto Vianna Júnior — advogados criminalistas, estudantes de Direito e candidatos a concursos da área criminal.
 
-## Detalhes
+### 3. Header
+- **Sem alteração.** Mantém só o botão CTA "Inscreva-se" (sem item de menu), conforme sua preferência.
 
-- Visível em mobile e desktop (botão compacto, não atrapalha leitura)
-- Quando você me mandar o número, troco apenas a constante `WHATSAPP_NUMBER` no arquivo
-- Não mexe em nenhum outro componente
+### 4. Data
+- **Sem alteração.** 27/06/2026 confirmada no Hero e Highlights.
+
+---
+
+## Fora do escopo (sugestão opcional)
+Posso revisar o `index.html` (title, meta description, Open Graph para preview no WhatsApp) numa próxima rodada se quiser — me avise.
