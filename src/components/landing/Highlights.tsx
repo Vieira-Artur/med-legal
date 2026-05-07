@@ -47,16 +47,18 @@ export const Highlights = () => {
               >
                 {title}
               </h3>
-              <p
-                className={cn(
-                  "mt-1 text-xs leading-snug md:text-sm",
-                  featured
-                    ? "text-accent-foreground/85"
-                    : "text-muted-foreground"
-                )}
-              >
-                {desc}
-              </p>
+              {desc && (
+                <p
+                  className={cn(
+                    "mt-1 text-xs leading-snug md:text-sm",
+                    featured
+                      ? "text-accent-foreground/85"
+                      : "text-muted-foreground"
+                  )}
+                >
+                  {desc}
+                </p>
+              )}
             </div>
           ))}
         </div>
