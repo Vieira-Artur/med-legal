@@ -8,7 +8,7 @@ const items = [
     desc: "Inscrição sem custo para alunos e ex-alunos",
     featured: true,
   },
-  { icon: Clock, title: "Certificado de 10h", desc: "Carga horária com atividades complementares" },
+  { icon: Clock, title: "Certificado de 10h", desc: "" },
   { icon: Award, title: "Certificado", desc: "Curso oficial de extensão" },
   { icon: Users, title: "Aberto", desc: "Alunos e ex-alunos do Vianna Jr." },
   { icon: CalendarDays, title: "Sábado integral", desc: "27/06/2026" },
