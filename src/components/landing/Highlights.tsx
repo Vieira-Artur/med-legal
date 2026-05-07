@@ -8,7 +8,7 @@ const items = [
     desc: "Inscrição sem custo para alunos e ex-alunos",
     featured: true,
   },
-  { icon: Clock, title: "8 horas", desc: "Certificado de 10h" },
+  { icon: Clock, title: "Certificado de 10h", desc: "" },
   { icon: Award, title: "Certificado", desc: "Curso oficial de extensão" },
   { icon: Users, title: "Aberto", desc: "Alunos e ex-alunos do Vianna Jr." },
   { icon: CalendarDays, title: "Sábado integral", desc: "27/06/2026" },
@@ -47,16 +47,18 @@ export const Highlights = () => {
               >
                 {title}
               </h3>
-              <p
-                className={cn(
-                  "mt-1 text-xs leading-snug md:text-sm",
-                  featured
-                    ? "text-accent-foreground/85"
-                    : "text-muted-foreground"
-                )}
-              >
-                {desc}
-              </p>
+              {desc && (
+                <p
+                  className={cn(
+                    "mt-1 text-xs leading-snug md:text-sm",
+                    featured
+                      ? "text-accent-foreground/85"
+                      : "text-muted-foreground"
+                  )}
+                >
+                  {desc}
+                </p>
+              )}
             </div>
           ))}
         </div>
