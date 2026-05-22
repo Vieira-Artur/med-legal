@@ -30,7 +30,7 @@ export const Hero = () => {
         <div className="max-w-3xl animate-fade-up">
           <span className="section-eyebrow text-accent-soft">
             <Sparkles className="h-3.5 w-3.5" />
-            Curso de Extensão · Instituto Vianna Júnior
+            Curso · Instituto Vianna Júnior
           </span>
 
           <h1 className="mt-5 font-serif text-4xl font-bold leading-[1.1] sm:text-5xl md:text-6xl">
@@ -45,7 +45,7 @@ export const Hero = () => {
             <strong className="align-baseline font-semibold leading-relaxed text-accent">
               GRATUITA
             </strong>
-            , em formato de curso de extensão, a alunos e ex-alunos das FIVJ.
+            , a alunos e ex-alunos das FIVJ.
           </p>
 
           {/* Free badge */}
@@ -64,11 +64,11 @@ export const Hero = () => {
             </li>
             <li className="flex items-center gap-2">
               <Clock className="h-4 w-4 text-accent-soft" />
-              8h–12h e 13h–17h
+              8h–12h
             </li>
             <li className="flex items-center gap-2">
               <Award className="h-4 w-4 text-accent-soft" />
-              Certificado de extensão
+              Certificado de 5h
             </li>
             <li className="flex items-center gap-2">
               <MapPin className="h-4 w-4 text-accent-soft" />
