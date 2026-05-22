@@ -13,7 +13,7 @@ export const Footer = () => {
           </div>
 
           <p className="text-center text-sm leading-relaxed text-primary-foreground/80">
-            Curso de extensão <strong>Noções Básicas de Medicina Legal</strong>
+            Curso <strong>Noções Básicas de Medicina Legal</strong>
             <br />
             Instituto Vianna Júnior — Juiz de Fora/MG
           </p>
