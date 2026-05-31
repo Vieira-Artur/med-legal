@@ -9,9 +9,8 @@ const items = [
     featured: true,
   },
   { icon: Clock, title: "Certificado de 5h", desc: "" },
-  { icon: Award, title: "Certificado", desc: "Curso oficial" },
   { icon: Users, title: "Aberto", desc: "Alunos e ex-alunos do Vianna Jr." },
-  { icon: CalendarDays, title: "Sábado integral", desc: "20/06/2026" },
+  { icon: CalendarDays, title: "Sábado pela manhã", desc: "20/06/26" },
 ];
 
 export const Highlights = () => {
