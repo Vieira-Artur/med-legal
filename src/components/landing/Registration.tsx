@@ -47,6 +47,14 @@ export const Registration = () => {
   const [values, setValues] = useState<FormValues>({ nome: "", cpf: "", email: "" });
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const formRef = useRef<HTMLFormElement>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   const handleChange = (field: keyof FormValues) => (e: React.ChangeEvent<HTMLInputElement>) => {
     const raw = e.target.value;
@@ -55,7 +63,7 @@ export const Registration = () => {
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }));
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const parsed = schema.safeParse(values);
     if (!parsed.success) {
@@ -69,28 +77,34 @@ export const Registration = () => {
     }
 
     setStatus("submitting");
+    // Real submission goes through the native form -> hidden iframe (works in Instagram/Facebook in-app browsers)
+    formRef.current?.submit();
 
-    const body = new FormData();
-    body.append(ENTRY.nome, parsed.data.nome);
-    body.append(ENTRY.cpf, parsed.data.cpf);
-    body.append(ENTRY.email, parsed.data.email);
-
-    try {
-      await fetch(FORM_ACTION, {
-        method: "POST",
-        mode: "no-cors",
-        body,
-      });
-      setStatus("success");
-      // Google Analytics: track conversion
+    // The iframe load event will flip status to success. Fallback timeout in case it never fires.
+    timeoutRef.current = setTimeout(() => {
+      setStatus((s) => (s === "submitting" ? "success" : s));
       if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
         (window as any).gtag("event", "sign_up", {
           event_category: "engagement",
           event_label: "Inscrição curso Medicina Legal",
         });
       }
-    } catch {
-      setStatus("error");
+    }, 2500);
+  };
+
+  const handleIframeLoad = () => {
+    // First load is the empty iframe; only treat as success once we've submitted.
+    if (status !== "submitting") return;
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setStatus("success");
+    if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+      (window as any).gtag("event", "sign_up", {
+        event_category: "engagement",
+        event_label: "Inscrição curso Medicina Legal",
+      });
     }
   };
 
