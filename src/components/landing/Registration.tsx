@@ -137,7 +137,15 @@ export const Registration = () => {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} noValidate className="space-y-5">
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              noValidate
+              action={FORM_ACTION}
+              method="POST"
+              target="hidden-gform-iframe"
+              className="space-y-5"
+            >
               <div className="space-y-2">
                 <Label htmlFor="nome">Nome completo *</Label>
                 <Input
