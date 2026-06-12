@@ -192,7 +192,7 @@ export const Registration = () => {
                 <Label htmlFor="email">E-mail *</Label>
                 <Input
                   id="email"
-                  name="email"
+                  name={ENTRY.email}
                   type="email"
                   autoComplete="email"
                   placeholder="seu@email.com"
