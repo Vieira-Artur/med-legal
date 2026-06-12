@@ -250,6 +250,15 @@ export const Registration = () => {
             </form>
           )}
         </div>
+        {/* Hidden iframe target for the native form POST. Works in Instagram/Facebook in-app browsers. */}
+        <iframe
+          name="hidden-gform-iframe"
+          title="hidden-gform-iframe"
+          onLoad={handleIframeLoad}
+          style={{ display: "none" }}
+          aria-hidden="true"
+          tabIndex={-1}
+        />
       </div>
     </section>
   );
