@@ -170,7 +170,7 @@ export const Registration = () => {
                 <Label htmlFor="cpf">CPF *</Label>
                 <Input
                   id="cpf"
-                  name="cpf"
+                  name={ENTRY.cpf}
                   type="text"
                   inputMode="numeric"
                   placeholder="000.000.000-00"
