@@ -150,7 +150,7 @@ export const Registration = () => {
                 <Label htmlFor="nome">Nome completo *</Label>
                 <Input
                   id="nome"
-                  name="nome"
+                  name={ENTRY.nome}
                   type="text"
                   autoComplete="name"
                   value={values.nome}
