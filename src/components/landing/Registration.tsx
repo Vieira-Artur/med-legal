@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -47,6 +47,14 @@ export const Registration = () => {
   const [values, setValues] = useState<FormValues>({ nome: "", cpf: "", email: "" });
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const formRef = useRef<HTMLFormElement>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   const handleChange = (field: keyof FormValues) => (e: React.ChangeEvent<HTMLInputElement>) => {
     const raw = e.target.value;
@@ -55,7 +63,7 @@ export const Registration = () => {
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }));
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const parsed = schema.safeParse(values);
     if (!parsed.success) {
@@ -69,28 +77,34 @@ export const Registration = () => {
     }
 
     setStatus("submitting");
+    // Real submission goes through the native form -> hidden iframe (works in Instagram/Facebook in-app browsers)
+    formRef.current?.submit();
 
-    const body = new FormData();
-    body.append(ENTRY.nome, parsed.data.nome);
-    body.append(ENTRY.cpf, parsed.data.cpf);
-    body.append(ENTRY.email, parsed.data.email);
-
-    try {
-      await fetch(FORM_ACTION, {
-        method: "POST",
-        mode: "no-cors",
-        body,
-      });
-      setStatus("success");
-      // Google Analytics: track conversion
+    // The iframe load event will flip status to success. Fallback timeout in case it never fires.
+    timeoutRef.current = setTimeout(() => {
+      setStatus((s) => (s === "submitting" ? "success" : s));
       if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
         (window as any).gtag("event", "sign_up", {
           event_category: "engagement",
           event_label: "Inscrição curso Medicina Legal",
         });
       }
-    } catch {
-      setStatus("error");
+    }, 2500);
+  };
+
+  const handleIframeLoad = () => {
+    // First load is the empty iframe; only treat as success once we've submitted.
+    if (status !== "submitting") return;
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setStatus("success");
+    if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+      (window as any).gtag("event", "sign_up", {
+        event_category: "engagement",
+        event_label: "Inscrição curso Medicina Legal",
+      });
     }
   };
 
@@ -123,12 +137,20 @@ export const Registration = () => {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} noValidate className="space-y-5">
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              noValidate
+              action={FORM_ACTION}
+              method="POST"
+              target="hidden-gform-iframe"
+              className="space-y-5"
+            >
               <div className="space-y-2">
                 <Label htmlFor="nome">Nome completo *</Label>
                 <Input
                   id="nome"
-                  name="nome"
+                  name={ENTRY.nome}
                   type="text"
                   autoComplete="name"
                   value={values.nome}
@@ -148,7 +170,7 @@ export const Registration = () => {
                 <Label htmlFor="cpf">CPF *</Label>
                 <Input
                   id="cpf"
-                  name="cpf"
+                  name={ENTRY.cpf}
                   type="text"
                   inputMode="numeric"
                   placeholder="000.000.000-00"
@@ -170,7 +192,7 @@ export const Registration = () => {
                 <Label htmlFor="email">E-mail *</Label>
                 <Input
                   id="email"
-                  name="email"
+                  name={ENTRY.email}
                   type="email"
                   autoComplete="email"
                   placeholder="seu@email.com"
@@ -228,6 +250,15 @@ export const Registration = () => {
             </form>
           )}
         </div>
+        {/* Hidden iframe target for the native form POST. Works in Instagram/Facebook in-app browsers. */}
+        <iframe
+          name="hidden-gform-iframe"
+          title="hidden-gform-iframe"
+          onLoad={handleIframeLoad}
+          style={{ display: "none" }}
+          aria-hidden="true"
+          tabIndex={-1}
+        />
       </div>
     </section>
   );
